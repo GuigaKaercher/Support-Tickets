@@ -1,3 +1,6 @@
 import { tickets } from "./tickets.js";
-
-export const routes = [...tickets]
+import { parserRoutePath } from "../utils/parseRoutePath.js";
+export const routes = [...tickets].map((route) =>({
+    ...route,
+    path: parserRoutePath(route.path)
+}))
